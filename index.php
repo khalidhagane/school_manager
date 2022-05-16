@@ -7,6 +7,7 @@ $home = new HomeController();
 
 $pages = ['home', 'add', 'update', 'delete'];
 
+
 if (isset($_GET['page'])){
     if (in_array($_GET['page'], $pages)){
         $page = $_GET['page'];

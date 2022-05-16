@@ -4,7 +4,7 @@ class Student
 {
     static public function getAll()
     {
-        $stmt = DB::connect()->prepare('SELECT * FROM employes');
+        $stmt = DB::connect()->prepare('SELECT * FROM students');
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
