@@ -16,7 +16,6 @@ function autoload($class_name){
     $name = array_pop($parts);
 
 
-
     foreach ($array_paths as $path){
         $file = sprintf($path . '%s.php', $name);
         if (is_file($file)){

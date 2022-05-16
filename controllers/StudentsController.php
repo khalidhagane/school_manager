@@ -3,8 +3,8 @@
 class StudentsController
 {
     public function getAllStudents(){
-        $employes = Student::getAll();
-        return $employes;
+        $students = Student::getAll();
+        return $students;
     }
 
     public function addStudent(){
