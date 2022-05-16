@@ -1,6 +1,6 @@
 <?php
 $data = new StudentsController();
-$employes = $data->getAllEmployes();
+$employes = $data->getAllStudents();
 ?>
 
 <div class="container">
