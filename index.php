@@ -5,7 +5,7 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home', 'add', 'update', 'delete'];
+$pages = ['home', 'add-parent', 'update-parent', 'delete-parent'];
 
 
 if (isset($_GET['page'])){

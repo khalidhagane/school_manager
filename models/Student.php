@@ -7,7 +7,7 @@ class Student
         $stmt = DB::connect()->prepare('SELECT * FROM students');
         $stmt->execute();
         return $stmt->fetchAll();
-        $stmt->close();
+        // $stmt->close();
         $stmt = null;
     }
 
@@ -25,7 +25,7 @@ class Student
         }else{
             return 'error';
         }
-        $stmt->close();
+        // $stmt->close();
         $stmt = null;
     }
 }
