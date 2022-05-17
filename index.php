@@ -5,18 +5,21 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home', 'add', 'update', 'delete'];
+$pages = ['home', 'add', 'update', 'delete', 'login', 'dashboard'];
 
+if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
 
-if (isset($_GET['page'])){
-    if (in_array($_GET['page'], $pages)){
-        $page = $_GET['page'];
-        $home->index($page);
-    } else {
-        include('views/includes/404.php');
+    if(isset($_GET['page'])){
+        if(in_array($_GET['page'],$pages)){
+            $page = $_GET['page'];
+            $home->index($page);
+        }else{
+            include('views/includes/404.php');
+        }
+    }else{
+        $home->index('home');
     }
-} else {
-    $home->index('home');
+    require_once './views/includes/footer.php';
+}else{
+    $home->index('login');
 }
-
-require_once './views/includes/footer.php';
