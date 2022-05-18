@@ -2,6 +2,7 @@
 require_once './controllers/ParentsController.php';
 $data = new ParentsController();
 $parents = $data->getAllparents();
+
 ?>
 
 <div class="container">
@@ -35,11 +36,11 @@ $parents = $data->getAllparents();
                                 <td><?= $parent['address']; ?></td>
                                 <td><?= $parent['phone']; ?></td>
                                 <td class="d-flex">
-                                    <form method="post" action="update" class="mr-1">
+                                    <form method="post" action="update-parent" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $parent['id'] ?>">
                                         <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
                                     </form>
-                                    <form method="post" action="delete" class="mr-1">
+                                    <form method="post" action="delete-parent" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $parent['id'] ?>">
                                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
