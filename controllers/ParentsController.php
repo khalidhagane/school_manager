@@ -1,22 +1,27 @@
 <?php
 
-class StudentsController
+class ParentsController
 {
-    public function getAllStudents(){
-        $students = Student::getAll();
-        return $students;
+    /**
+     * this methode return all element from table parent in database;
+     *  @return table   
+     */
+    public function getAllparents(){
+        $parents = Parents::getAll();
+        return $parents;
     }
 
-    public function addStudent(){
+    public function addNewParent(){
         if(isset($_POST['submit'])){
             $data = array(
+                'matr' => $_POST['matr'],
                 'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'depart' => $_POST['depart'],
-                'starting_date' => $_POST['starting_date'],
-                'status' => $_POST['status'],
+                'genre' => $_POST['genre'],
+                'job' => $_POST['job'],
+                'address' => $_POST['address'],
+                'phone' => $_POST['phone'],
             );
-            $result = Student::add($data);
+            $result = Parents::addParent($data);
             if($result === 'ok'){
                 header('location:'.BASE_URL);
             }else{
