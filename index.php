@@ -17,7 +17,7 @@ if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
             include('views/includes/404.php');
         }
     }else{
-        $home->index('home');
+        $home->index('dashboard');
     }
     require_once './views/includes/footer.php';
 }else{
