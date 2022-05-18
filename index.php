@@ -5,7 +5,7 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home', 'add', 'update', 'delete', 'login', 'dashboard'];
+$pages = ['home', 'add', 'update', 'delete','teacher','add-teacher','update-teacher','delete-teacher'];
 
 if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
 

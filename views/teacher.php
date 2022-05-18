@@ -6,7 +6,7 @@ $profs = $data->getAllprofs();
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-lg-10 mx-auto">
-            <a href="<?= BASE_URL;?>add" class="btn btn-md btn-primary">
+            <a href="<?= BASE_URL;?>add-teacher" class="btn btn-md btn-primary">
                 <i class="fas fa-plus"></i>
             </a>
             <table class="table">
@@ -29,11 +29,11 @@ $profs = $data->getAllprofs();
                                 <td><?= $prof['matier'];?></td>
                                 <td><?= $prof['phone'];?></td>
                                 <td class="d-flex">
-                                    <form method="post" action="update" class="mr-1">
+                                    <form method="post" action="update-teacher" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $prof['id']?>">
                                         <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
                                     </form>
-                                    <form method="post" action="delete" class="mr-1">
+                                    <form method="post" action="delete-teacher" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $prof['id']?>">
                                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
