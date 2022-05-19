@@ -12,13 +12,16 @@ class Student
     }
 
     static public function add($data){
-        $stmt = DB::connect()->prepare('INSERT INTO students (name,email,departement,starting_date,status)
-			VALUES (:name,:email,:depart,:starting_date,:status)');
+        $stmt = DB::connect()->prepare('INSERT INTO students (matr,name,genre,address,date_ne,email,parents_name)
+			VALUES (:matr,:name,:genre,:address,:date_ne,:email,:parents_name)');
+        $stmt->bindParam(':matr',$data['matr']);
         $stmt->bindParam(':name',$data['name']);
+        $stmt->bindParam(':genre',$data['genre']);
+        $stmt->bindParam(':address',$data['address']);
+        $stmt->bindParam(':date_ne',$data['date_ne']);
         $stmt->bindParam(':email',$data['email']);
-        $stmt->bindParam(':depart',$data['depart']);
-        $stmt->bindParam(':starting_date',$data['starting_date']);
-        $stmt->bindParam(':status',$data['status']);
+        $stmt->bindParam(':parents_name',$data['parents_name']);
+        
 
         if($stmt->execute()){
             return 'ok';
@@ -28,5 +31,24 @@ class Student
         // $stmt->close();
         $stmt = null;
     }
+
+
+    static public function delete($data){
+        $id = $data['id'];
+        try {
+            $query = "DELETE FROM students WHERE id=:id";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id" => $id));
+            if ($stmt->execute()) {
+                return 'ok';
+            }
+        } catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
+    }
+
 }
+
+
+
 
