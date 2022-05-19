@@ -12,8 +12,7 @@ class Parents{
 
 
     static public function addParent($data){
-        $stmt = DB::connect()->prepare('INSERT INTO parents (matr,name,genre,job,address,phone)
-			VALUES (?, ?, ?, ?, ?, ?)');
+        $stmt = DB::connect()->prepare('INSERT INTO parents (matr,name,genre,job,address,phone) VALUES (?, ?, ?, ?, ?, ?)');
         $stmt->bindParam(1,$data['matr']);
         $stmt->bindParam(2,$data['name']);
         $stmt->bindParam(3,$data['genre']);
@@ -50,6 +49,7 @@ class Parents{
     }
 
     static public function update($data){
+        
         $query = "UPDATE `parents` SET `matr` = ?, `name` = ?, `genre` = ?, `job` = ?, `address` = ?, `phone` = ? WHERE `id` = ?";
         
         $stmt = DB::connect()->prepare($query);
@@ -69,5 +69,19 @@ class Parents{
         }
         // $stmt->close();
         $stmt = null;
+    }
+
+
+    static public function delete($data){
+        try{
+            $query = 'DELETE FROM `parents` WHERE id = ?';
+            $stmt = DB::connect() -> prepare($query);
+            $stmt -> bindParam(1, $data['id']);
+            if ($stmt -> execute()) {
+                return 'ok';
+            }
+        }catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
     }
 }

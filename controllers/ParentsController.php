@@ -64,4 +64,18 @@ class ParentsController
                }
         }
     }
+
+    public function deletParent(){
+        if(isset($_POST['id'])){
+            $data['id'] = $_POST['id'];
+            $result = Parents::delete($data);
+            if ($result === 'ok') {
+                // header('location:'.BASE_URL);
+                // Session::set('success', 'Epmployé Supprimé');
+                Redirect::to('parent');
+            } else {
+                echo $result;
+            }
+        }
+    }
 }

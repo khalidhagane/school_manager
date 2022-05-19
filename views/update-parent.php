@@ -10,12 +10,8 @@
 
    if (isset($_POST['submit'])) { 
         $Parent = new ParentsController();
-        $Parent -> updateParent();
+        $Parent -> updateParent();  
     }
-
-
-
-
 ?>
 <div class="container">
 	<div class="row my-4">
