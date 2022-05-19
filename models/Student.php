@@ -7,8 +7,8 @@ class Student
         $stmt = DB::connect()->prepare('SELECT * FROM students');
         $stmt->execute();
         return $stmt->fetchAll();
-        $stmt->close();
-        $stmt = null;
+        // $stmt->close();
+        // $stmt = null;
     }
 
     static public function add($data){
@@ -28,6 +28,7 @@ class Student
         }else{
             return 'error';
         }
+        
         $stmt->close();
         $stmt = null;
     }
@@ -47,6 +48,43 @@ class Student
         }
     }
 
+
+    static public function update($data)
+    {
+        $query = "UPDATE `students` SET `matr` = :matr, `name` = :name, `genre` = :genre, `address` = :address, `date_ne` = :date_ne, `email` = :email, `parents_name` = :parents_name WHERE `id` = :id";
+        $stmt = DB::connect()->prepare($query);
+        $stmt->bindParam(':id', $data['id'], PDO::PARAM_STR);
+        $stmt->bindParam(':matr', $data['matr'], PDO::PARAM_STR);
+        $stmt->bindParam(':name', $data['name'], PDO::PARAM_STR);
+        $stmt->bindParam(':genre', $data['genre'], PDO::PARAM_STR);
+        $stmt->bindParam(':address', $data['address'], PDO::PARAM_STR);
+        $stmt->bindParam(':date_ne', $data['date_ne'], PDO::PARAM_STR);
+        $stmt->bindParam(':email', $data['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':parents_name', $data['parents_name'], PDO::PARAM_STR);
+        //  die(print_r($data));
+        if ($stmt->execute()) {
+            return 'ok';
+        } else {
+            return 'error';
+        }
+        // $stmt->close();
+        $stmt = null;
+    }
+
+
+    static public function getOneStudent($data)
+    {
+        $id = $data['id'];
+        try {
+            $query = "SELECT * FROM students WHERE id=:id";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id" => $id));
+            $employe = $stmt->fetch(PDO::FETCH_OBJ);
+            return $employe;
+        } catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
+    }
 }
 
 

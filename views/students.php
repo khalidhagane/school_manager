@@ -40,7 +40,7 @@ $students = $data->getAllStudents();
                                 
                                 
                                 <td class="d-flex">
-                                    <form method="post" action="update" class="mr-1">
+                                    <form method="post" action="update-student" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $student['id']?>">
                                         <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
                                     </form>
