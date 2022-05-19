@@ -1,8 +1,8 @@
 <?php
-    if (isset($_POST['submit'])){
-        $newStudent = new StudentsController();
-        $newStudent->addStudent();
-    }
+    // if (isset($_POST['submit'])){
+    //     $newStudent = new StudentsController();
+    //     $newStudent->addStudent();
+    // }
 ?>
 <div class="container">
     <div class="row my-4">

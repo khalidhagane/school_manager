@@ -28,7 +28,7 @@ class Admin
         }else{
             return 'error';
         }
-        $stmt->close();
+        // $stmt->close();
         $stmt = null;
     }
 }

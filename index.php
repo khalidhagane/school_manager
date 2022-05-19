@@ -5,7 +5,7 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home', 'add', 'update', 'delete','teacher','add-teacher','update-teacher','delete-teacher', 'students','add-student','delete-student'];
+$pages = ['home', 'add', 'update', 'delete','teacher','add-teacher','update-teacher','delete-teacher', 'students','add-student','delete-student', 'parent', 'add-parent', 'update-parent', 'delete-parent'];
 
 if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
 
@@ -17,7 +17,7 @@ if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
             include('views/includes/404.php');
         }
     }else{
-        $home->index('home');
+        $home->index('parent');
     }
     require_once './views/includes/footer.php';
 }else{
