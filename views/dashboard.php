@@ -1,6 +1,6 @@
 <?php
-
 $data = new DashboardController();
+$search = null;
 if(isset($_POST['search'])){
     $search = $data->findKeyword($_POST['table'], $_POST['keyword']);
 }else{
@@ -21,7 +21,6 @@ if(isset($_POST['search'])){
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -48,6 +47,15 @@ if(isset($_POST['search'])){
         </form>
     </div>
 </nav>
+<?php
+if ($search !== null){
+    echo '<pre>';
+    var_dump($search);
+    echo '</pre>';
+} else {
+
+
+?>
 <div class="container">
     <?= $mper.'% '.$fper?>
         <div class="row mt-4">
@@ -89,3 +97,6 @@ if(isset($_POST['search'])){
             </div>
         </div>
 </div>
+<?php
+}
+?>

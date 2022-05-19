@@ -1,5 +1,6 @@
 <?php
 
+
 class Dashboard
 {
     public static function count($table){
