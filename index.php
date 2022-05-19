@@ -7,19 +7,19 @@ $home = new HomeController();
 
 $pages = ['home', 'add', 'update', 'delete','teacher', 'dashboard','add-teacher','update-teacher','delete-teacher', 'students','add-student','delete-student','update-student'];
 
-if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){
+if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
 
-    if(isset($_GET['page'])){
-        if(in_array($_GET['page'],$pages)){
+    if (isset($_GET['page'])) {
+        if (in_array($_GET['page'], $pages)) {
             $page = $_GET['page'];
             $home->index($page);
-        }else{
+        } else {
             include('views/includes/404.php');
         }
-    }else{
-        $home->index('home');
+    } else {
+        $home->index('dashboard');
     }
     require_once './views/includes/footer.php';
-}else{
+} else {
     $home->index('login');
 }
