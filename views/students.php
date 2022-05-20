@@ -22,7 +22,7 @@ $students = $data->getAllStudents();
                             <th scope="col">Address</th>
                             <th scope="col">Date naissance</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Parants name </th>
+                            <th scope="col">Matricule parents </th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -35,7 +35,7 @@ $students = $data->getAllStudents();
                                 <td><?= $student['address'];?></td>
                                 <td><?= $student['date_ne'];?></td>
                                 <td><?= $student['email'];?></td>
-                                <td><?= $student['parents_name'];?></td>
+                                <td><?= $student['parents_matr'];?></td>
                                 
                                 
                                 

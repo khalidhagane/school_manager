@@ -2,6 +2,8 @@
 //add form and redirection to controller
 ?>
 <?php
+
+
     if (isset($_POST['submit'])){
         $newStudent = new StudentsController();
         $newStudent->addStudent();
@@ -19,31 +21,38 @@
                     <form method="post">
                         <div class="form-group">
                             <label for="name">matricul*</label>
-                            <input type="text" name="matr" class="form-control" placeholder="Full name">
+                            <input type="number" name="matr" class="form-control" placeholder="Matricule">
                         </div>
                         <div class="form-group">
                             <label for="email">name*</label>
-                            <input type="text" name="name" class="form-control" placeholder="Email">
+                            <input type="text" name="name" class="form-control" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="depart">gerne*</label>
-                            <input type="text" name="genre" class="form-control" placeholder="Departement">
+                            <!-- <input type="text" name="genre" class="form-control" placeholder="Genre"> -->
+
+                            <select class="custom-select my-1 mr-sm-2" name="genre">
+                                
+                                <option value="f">F</option>
+                                <option value="m">M</option>
+                            </select>
                         </div>
+
                         <div class="form-group">
                             <label for="starting_date">Address*</label>
-                            <input type="text" name="address" class="form-control">
+                            <input type="text" name="address" class="form-control" placeholder="Address">
                         </div>
                         <div class="form-group">
                             <label for="starting_date"> date naissance*</label>
-                            <input type="date" name="date_ne" class="form-control">
+                            <input type="date" name="date_ne" class="form-control" placeholder="Date de naissance">
                         </div>
                         <div class="form-group">
                             <label for="starting_date">Email*</label>
-                            <input type="text" name="email" class="form-control">
+                            <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for="starting_date">Parent name*</label>
-                            <input type="text" name="parents_name" class="form-control">
+                            <label for="starting_date">Matricule parent*</label>
+                            <input type="int" name="parents_matr" class="form-control" placeholder="Matricule parent">
                         </div>
                        
                         <div class="form-group">

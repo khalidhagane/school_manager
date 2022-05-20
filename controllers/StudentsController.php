@@ -16,7 +16,7 @@ class StudentsController
                 'address' => $_POST['address'],
                 'date_ne' => $_POST['date_ne'],
                 'email' => $_POST['email'],
-                'parents_name' => $_POST['parents_name'],
+                'parents_matr' => $_POST['parents_matr'],
             );
             $result = Student::add($data);
             if($result === 'ok'){
@@ -60,7 +60,7 @@ class StudentsController
                 'address'=> $_POST['address'],
                 'date_ne'=> $_POST['date_ne'],
                 'email'=> $_POST['email'],
-                'parents_name' => $_POST['parents_name'],
+                'parents_matr' => $_POST['parents_matr'],
                );
             $result = Student::update($data);
             if ($result === 'ok'){     

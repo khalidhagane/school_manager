@@ -12,15 +12,15 @@ class Student
     }
 
     static public function add($data){
-        $stmt = DB::connect()->prepare('INSERT INTO students (matr,name,genre,address,date_ne,email,parents_name)
-			VALUES (:matr,:name,:genre,:address,:date_ne,:email,:parents_name)');
+        $stmt = DB::connect()->prepare('INSERT INTO students (matr,name,genre,address,date_ne,email,parents_matr)
+			VALUES (:matr,:name,:genre,:address,:date_ne,:email,:parents_matr)');
         $stmt->bindParam(':matr',$data['matr']);
         $stmt->bindParam(':name',$data['name']);
         $stmt->bindParam(':genre',$data['genre']);
         $stmt->bindParam(':address',$data['address']);
         $stmt->bindParam(':date_ne',$data['date_ne']);
         $stmt->bindParam(':email',$data['email']);
-        $stmt->bindParam(':parents_name',$data['parents_name']);
+        $stmt->bindParam(':parents_matr',$data['parents_matr']);
         
 
         if($stmt->execute()){
@@ -29,8 +29,8 @@ class Student
             return 'error';
         }
         
-        $stmt->close();
-        $stmt = null;
+        // $stmt->close();
+        // $stmt = null;
     }
 
 
@@ -51,7 +51,7 @@ class Student
 
     static public function update($data)
     {
-        $query = "UPDATE `students` SET `matr` = :matr, `name` = :name, `genre` = :genre, `address` = :address, `date_ne` = :date_ne, `email` = :email, `parents_name` = :parents_name WHERE `id` = :id";
+        $query = "UPDATE `students` SET `matr` = :matr, `name` = :name, `genre` = :genre, `address` = :address, `date_ne` = :date_ne, `email` = :email, `parents_matr` = :parents_matr WHERE `id` = :id";
         $stmt = DB::connect()->prepare($query);
         $stmt->bindParam(':id', $data['id'], PDO::PARAM_STR);
         $stmt->bindParam(':matr', $data['matr'], PDO::PARAM_STR);
@@ -60,7 +60,7 @@ class Student
         $stmt->bindParam(':address', $data['address'], PDO::PARAM_STR);
         $stmt->bindParam(':date_ne', $data['date_ne'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $data['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':parents_name', $data['parents_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':parents_matr', $data['parents_matr'], PDO::PARAM_STR);
         //  die(print_r($data));
         if ($stmt->execute()) {
             return 'ok';
