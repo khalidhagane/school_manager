@@ -25,13 +25,14 @@ class profs{
     //add-teacher
     static public function add($data)
     {
-    $stmt = DB::connect()->prepare('INSERT INTO profs (matr,name,genre,matier,phone)
-    VALUES (:matr,:name,:genre,:matier,:phone)');
+    $stmt = DB::connect()->prepare('INSERT INTO profs (matr,name,genre,matier,phone,class)
+    VALUES (:matr,:name,:genre,:matier,:phone,:class)');
     $stmt->bindParam(':matr',$data['matr']);
     $stmt->bindParam(':name',$data['name']);
     $stmt->bindParam(':genre',$data['genre']);
     $stmt->bindParam(':matier',$data['matier']);
     $stmt->bindParam(':phone',$data['phone']);
+    $stmt->bindParam(':class',$data['class']);
 
     if($stmt->execute()){
         return 'ok';
@@ -51,7 +52,7 @@ class profs{
     //add-teacher
     static public function update($data)
     {
-        $query = "UPDATE `profs` SET `matr` = :matr, `name` = :name, `genre` = :genre, `matier` = :matier, `phone` = :phone WHERE `id` = :id";
+        $query = "UPDATE `profs` SET `matr` = :matr, `name` = :name, `genre` = :genre, `matier` = :matier, `phone` = :phone , `class` = :class WHERE `id` = :id";
         $stmt=DB::connect()->prepare($query);
         $stmt->bindParam(':id', $data['id'], PDO::PARAM_STR);
         $stmt->bindParam(':matr', $data['matr'], PDO::PARAM_STR);
@@ -59,6 +60,8 @@ class profs{
         $stmt->bindParam(':genre', $data['genre'], PDO::PARAM_STR);
         $stmt->bindParam(':matier', $data['matier'], PDO::PARAM_STR);
         $stmt->bindParam(':phone', $data['phone'], PDO::PARAM_STR);
+        $stmt->bindParam(':class', $data['class'], PDO::PARAM_STR);
+
         // die(print_r($data));
         if ($stmt->execute()) {
             return 'ok';

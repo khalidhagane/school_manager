@@ -36,7 +36,12 @@ if (isset($_POST['submit'])) {
 						</div>
 						<div class="form-group">
 							<label for="genre">genre</label>
-							<input type="text" name="genre" class="form-control" placeholder="genre" value="<?= $data->genre ?>">
+							<select class="custom-select my-1 mr-sm-2 mb-3" name="genre">
+							   <option value="<?= $data->class ?>" selected><?= $data->class ?></option>
+								<option value="<?= $data->genre ?>">female</option>
+								<option value="<?= $data->genre ?>">Male</option>
+
+							</select>						
 						</div>
 						<div class="form-group">
 							<label for="matier">matier</label>
@@ -45,10 +50,18 @@ if (isset($_POST['submit'])) {
 						</div>
                             
                         <div class="form-group">
-							<label for="phone">genre</label>
+							<label for="phone">Phone</label>
 							<input type="text" name="phone" class="form-control" placeholder="phone" value="<?= $data->phone ?>">
 						</div>
-                      
+						<div>
+						<label for="phone">Class</label>
+					  <select class="custom-select my-1 mr-sm-2 mb-3" name="class">
+                      <option value="<?= $data->class ?>" selected><?= $data->class ?></option>
+                      <option value="<?= $data->class ?>">Namek</option>
+                      <option value="<?= $data->class ?>">meata</option>
+					  <option value="<?= $data->class ?>">NiNJA</option>
+                      </select>
+						</div>
 
 
 						<div class="form-group">
