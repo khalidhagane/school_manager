@@ -17,6 +17,7 @@ $profs = $data->getAllprofs();
                             <th scope="col">genre</th>
                             <th scope="col">matier</th>
                             <th scope="col">phone</th>
+                            <th scope="col">Class</th>
                             <th scope="col">Status</th>
                         </tr>
                         </thead>
@@ -28,6 +29,7 @@ $profs = $data->getAllprofs();
                                 <td><?= $prof['genre'];?></td>
                                 <td><?= $prof['matier'];?></td>
                                 <td><?= $prof['phone'];?></td>
+                                <td><?= $prof['class'];?></td>
                                 <td class="d-flex">
                                     <form method="post" action="update-teacher" class="mr-1">
                                         <input type="hidden" name="id" value="<?= $prof['id']?>">
