@@ -21,7 +21,8 @@ class StudentsController
             $result = Student::add($data);
             if($result === 'ok'){
                 Redirect::to('students');
-            }else{
+            }
+            else{
                 echo $result;
             }
         }

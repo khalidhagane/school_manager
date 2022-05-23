@@ -1,6 +1,4 @@
-<?php
-//students table
-?>
+
 
 <?php
 $data = new StudentsController();

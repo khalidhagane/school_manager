@@ -25,12 +25,12 @@ class Student
 
         if($stmt->execute()){
             return 'ok';
-        }else{
+        }
+        else{
             return 'error';
         }
         
-        // $stmt->close();
-        // $stmt = null;
+        
     }
 
 
@@ -79,13 +79,16 @@ class Student
             $query = "SELECT * FROM students WHERE id=:id";
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" => $id));
-            $employe = $stmt->fetch(PDO::FETCH_OBJ);
-            return $employe;
+            $student = $stmt->fetch(PDO::FETCH_OBJ);
+            return $student;
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }
     }
 }
+
+
+
 
 
 
