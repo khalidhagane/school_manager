@@ -52,7 +52,8 @@ class profs{
     //add-teacher
     static public function update($data)
     {
-        $query = "UPDATE `profs` SET `matr` = :matr, `name` = :name, `genre` = :genre, `matier` = :matier, `phone` = :phone , `class` = :class WHERE `id` = :id";
+        $query = "UPDATE `profs` SET `matr` = :matr, `name` = :name, `genre` = :genre,
+         `matier` = :matier, `phone` = :phone , `class` = :class WHERE `id` = :id";
         $stmt=DB::connect()->prepare($query);
         $stmt->bindParam(':id', $data['id'], PDO::PARAM_STR);
         $stmt->bindParam(':matr', $data['matr'], PDO::PARAM_STR);
